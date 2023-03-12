@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Sample Email</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style>
+        body{
+            background-color: #605e5e;
+            color: white;
+        }
+        .main-div{
+            width:50%;
+            margin: 0 auto;
+        }
+        .button-div{
+            width:400px;
+            margin:0 auto;
+        }
+        h1{
+            text-align: center;
+        }
+        form{
+            text-align: center;
+        }
+        label{
+            width:100px;
+            height:30px;
+        }
+        input{
+            width:300px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+  <div class="container main-div">
+      <h1>Register</h1><br>
+
+      <form method="post" th:action="@{/sendEmail}", th:object="${user}">
+          <div class="form-group">
+              <label for="full_name">Full Name:</label>
+              <input type="text" id="full_name" required th:field="*{fullName}">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required th:field="*{email}">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required th:field="*{password}">
+          </div>
+
+          <div class="button-div">
+              <button class="btn btn-primary col" type="submit">Send</button>
+          </div>
+      </form>
+  </div>
+</body>
+</html>

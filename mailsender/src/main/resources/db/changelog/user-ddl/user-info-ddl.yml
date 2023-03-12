@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create User Data Table
+      author: Rinat Hajiyev
+      comment: Information about user
+      changes:
+        - sqlFile:
+            path: db/changelog/user-ddl/user-info-ddl.sql
